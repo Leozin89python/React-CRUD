@@ -1,4 +1,6 @@
 import React from 'react'
+import Prod from '../../App/ProductService'
+
 
 export default class Cadastro extends React.Component   {
 
@@ -10,6 +12,10 @@ export default class Cadastro extends React.Component   {
         fornecedor:''
     }
 
+    constructor()   {
+        super()
+         
+    }
 
     onChange = (e) => {
         const valor = e.target.value
@@ -20,7 +26,7 @@ export default class Cadastro extends React.Component   {
     }
 
     onSubmit = (e) =>   {
-        console.log(this.state)
+        console.log(this.state) 
     }
 
     onClean = () => {
