@@ -10,7 +10,8 @@ export default class Cadastro extends React.Component   {
         descricao:'',
         preco:0.0,
         fornecedor:'',
-        sucesso: false
+        sucesso: false,
+        errors: []
     }
 
     constructor()   {
@@ -28,6 +29,8 @@ export default class Cadastro extends React.Component   {
 
     onSubmit = (e) =>   {
 
+
+      
        const produto = {
            nome:this.state.nome,
            sku:this.state.sku,
@@ -35,12 +38,19 @@ export default class Cadastro extends React.Component   {
            preco:this.state.preco,
            fornecedor:this.state.fornecedor
        }
-      
-       this.service.salvar(produto )
+       try{
+           
+        this.service.salvar(produto )
        this.setState({
            sucesso: true
-       })
-
+     })
+     }
+     catch(erro){
+        const errors = erro.errors
+        this.setState({
+            errors: errors
+        })
+     }
     }
 
     onClean = () => {
@@ -69,12 +79,28 @@ export default class Cadastro extends React.Component   {
                     <div class="alert alert-dismissible alert-success">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                          <strong>OK!</strong>   Cadastro realizado com sucesso!
-                </div>
+                    </div>
                   ) :   (
                       <React.Fragment>
 
                       </React.Fragment>
                   )
+              }
+
+
+              {
+
+                     this.state.errors.length >0 &&
+                     this.state.errors.map( msg =>  {
+                         return (
+                            <div className="alert alert-dismissible alert-danger">
+                                 <button type="button" className="close" data-dismiss="alert">&times;</button>
+                                <strong>Ops!  Ocorreu um erro!</strong> 
+                                {msg}
+                            </div>
+                         )
+                     })
+
               }
 
 
