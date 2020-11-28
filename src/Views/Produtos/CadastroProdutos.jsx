@@ -14,7 +14,7 @@ export default class Cadastro extends React.Component   {
 
     constructor()   {
         super()
-         
+         this.service = new Prod()
     }
 
     onChange = (e) => {
