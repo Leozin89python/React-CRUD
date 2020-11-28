@@ -1,5 +1,5 @@
 import React from 'react'
-export class ConsultaProdutos extends React.Component   {
+export default class ConsultaProdutos extends React.Component   {
 
     state = {
         produtos: []
@@ -7,8 +7,14 @@ export class ConsultaProdutos extends React.Component   {
 
     render()    {
         return(
+
+            <div className="card">
+                <div    className="card-header">
+                    consulta de produtos
+                </div>
+                <div className="card-body">
           
-            <table>
+            <table className="table table-hover">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -34,6 +40,8 @@ export class ConsultaProdutos extends React.Component   {
                     }
                 </tbody>
             </table>
+        </div>
+     </div>
 
         )
     }
