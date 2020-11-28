@@ -9,7 +9,8 @@ export default class Cadastro extends React.Component   {
         sku:'',
         descricao:'',
         preco:0.0,
-        fornecedor:''
+        fornecedor:'',
+        sucesso: false
     }
 
     constructor()   {
@@ -26,7 +27,20 @@ export default class Cadastro extends React.Component   {
     }
 
     onSubmit = (e) =>   {
-        console.log(this.state) 
+
+       const produto = {
+           nome:this.state.nome,
+           sku:this.state.sku,
+           descricao:this.state.descricao,
+           preco:this.state.preco,
+           fornecedor:this.state.fornecedor
+       }
+      
+       this.service.salvar(produto )
+       this.setState({
+           sucesso: true
+       })
+
     }
 
     onClean = () => {
@@ -35,7 +49,8 @@ export default class Cadastro extends React.Component   {
         sku:'',
         descricao:'',
         preco:0.0,
-        fornecedor:''
+        fornecedor:'',
+        sucesso: false
        })
     }
 
@@ -46,6 +61,23 @@ export default class Cadastro extends React.Component   {
                 <div className="card-header">
                     Cadastro de Produtos
                 </div>
+ 
+
+              {
+                  this.state.sucesso ? 
+                  (
+                    <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                         <strong>OK!</strong>   Cadastro realizado com sucesso!
+                </div>
+                  ) :   (
+                      <React.Fragment>
+
+                      </React.Fragment>
+                  )
+              }
+
+
 
                 <div className="card-body">
 
