@@ -33,6 +33,12 @@ export default class ProductService  {
         }
     }
 
+    obterProd = () => {
+       
+        const prod = localStorage.getItem(produtos)
+        return JSON.parse(prod)
+    }
+
     salvar = (produto) =>  {
         this.validar(produto)
 

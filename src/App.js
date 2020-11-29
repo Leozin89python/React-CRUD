@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from './Components/NavBar/NavBar'
 import Rotas from './Rotas'
+import { HashRouter } from 'react-router-dom'
 
 export default class App extends React.Component  {
 
@@ -8,9 +9,13 @@ export default class App extends React.Component  {
       return  (
         <React.Fragment>
           <div className="container">
-              <Nav />
-              <Rotas />
-            </div>
+             
+              <HashRouter>
+                <Nav />
+                <Rotas />
+              </HashRouter>
+            
+          </div>
             
       </React.Fragment>
     )

@@ -1,8 +1,22 @@
 import React from 'react'
+import service from '../../App/ProductService'
+
 export default class ConsultaProdutos extends React.Component   {
 
     state = {
         produtos: []
+    }
+
+    constructor()   {
+        super()
+        this.service = new service()
+    }
+
+    componentDidMount() {
+        const prod = this.service.obterProd()
+        this.setState({
+            prod 
+        })
     }
 
     render()    {
@@ -26,9 +40,9 @@ export default class ConsultaProdutos extends React.Component   {
                 </thead>
                 <tbody>
                     {
-                        this.state.produtos.map(    produto => {
+                        this.state.produtos.map(    (produto, indice) => {
                             return  (
-                                <tr>
+                                <tr key={indice}>
                                     <th>{produto.nome}</th>
                                     <th>{produto.sku}</th>
                                     <th>{produto.preco}</th>

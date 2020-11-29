@@ -8,12 +8,12 @@ import Consulta from './Views/Produtos/Consulta'
 
 export default () =>    {
     return  (
-        <HashRouter>
+    
             <Switch>
                 <Route exact={true} path="/" component={Home} />
                 <Route exact={true} path="/cadastro" component={Cadastro}/> 
                 <Route exact={true} path="/consulta" component={Consulta} />
             </Switch>
-        </HashRouter>
+        
     )
 }
