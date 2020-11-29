@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 export default function Home()    {
 
@@ -10,7 +11,7 @@ export default function Home()    {
             <p className="lead">Sistema Logístico</p>
          <hr className="my-4"/>
             <p className="lead">
-            <a className="btn btn-primary btn-lg" href="#" role="button">Cadastro</a>
+            <Link className="btn btn-primary btn-lg" to="/cadastro" role="button">Cadastro</Link>
          </p>
         </div>
     )
